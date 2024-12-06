@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI CALCULATOR</title>
+    <script src="app.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body >
+    <div class="bg-violet-400 w-[50vw] h-[100vh] relative">
+    </div>
+    <div class="w-[400px] mt-40 mx-auto bg-white rounded-lg shadow-violet-500 shadow-lg absolute top-[10%] left-[50%] translate-x-[-50%] tranlate-y-[-40%]">
+        <p  class="py-4 px-5 text-neutral-500 text-lg flex justify-between">Height<input id="height" oninput="calculator()" class="bg-neutral-200 w-[70px] text-center" type="text" value="1"></p><hr>
+        <p  class="py-4 px-5 text-neutral-500 text-lg flex justify-between">Weight<input id="weight"  oninput="calculator()" class="bg-neutral-200 w-[70px] text-center" type="text" value="0"></p><hr>
+        <p id="bmi" class="py-4 px-5 text-neutral-500 text-lg flex justify-between">BMI <span class="bg-neutral-200 w-[70px] text-center" id="result"></span></p> <hr>
+        <p class="py-4 px-5 text-neutral-900 text-lg text-center" id="calculation"></p>
+    </div>
+</body>
+</html>
