@@ -1,6 +1,6 @@
 let users=[]
 let usersContainer=document.getElementById('usersContainer')
-
+let alert=document.getElementById('alert')
 
 
 
@@ -22,9 +22,11 @@ let usersContainer=document.getElementById('usersContainer')
 //     div.appendChild(email)
 
 // }
-
-
+//map() creates a new array from calling a function for every array element.
+//The filter() method creates a new array filled with
+//  elements that pass a test provided by a function.
 function renderusers(){
+    usersContainer.innerHTML=" "
         users.forEach((user)=>{
             let div = document.createElement('div');
             div.classList.add('user');
@@ -40,6 +42,24 @@ function renderusers(){
             div.appendChild(email);
         })
 }
+function doesuserexist(val){
+    let user = users.filter((user)=>{
+        return user.email==val;
+    })
+    if (user.length>0){
+        return true
+    }
+    else{
+        return false
+    }
+    
+}
+function hidealert(){
+    setTimeout(()=>{
+        alert.classList.remove('success','danger')
+    },500);
+}
+
 function adduser(){
     let name=document.getElementById('name');
     let email=document.getElementById('email')
@@ -47,7 +67,18 @@ function adduser(){
         name: name.value,
         email: email.value,
     }
-    users.push(user)
+    let userexist= doesuserexist(email.value);
+    if(!userexist){
+        users.push(user)
+        alert.classList.add('success')
+        alert.innerText='Email already successsfully';
+        hidealert()
+    }
+    else{
+        alert.classList.add('danger')
+        alert.innerText='Email already exist';
+        hidealert()
+    }
     console.log(users)
     renderusers()
 }
